@@ -1,0 +1,4 @@
+Este es el manual de la aplicación.
+Para abrir un archivo, pulse abrir.
+Para guardar un archivo, pulse guardar.
+Para cerrar la aplicación, pulse salir.
