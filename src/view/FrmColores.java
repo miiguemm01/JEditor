@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import controller.ColoresController;
 import model.Colores;
 
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -13,7 +11,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.JToolBar;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -23,6 +20,10 @@ import java.awt.SystemColor;
 
 public class FrmColores extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1130375720717662216L;
 	private final JPanel contentPanel = new JPanel();
 	public static JLabel testLabel;
 	public static Color backgroundColor = null;

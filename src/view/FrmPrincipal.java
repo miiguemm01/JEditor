@@ -1,21 +1,26 @@
 package view;
 
+import java.awt.Font;
 import controller.ColoresController;
 import controller.Controller;
+import controller.FuenteController;
 import model.Colores;
 
 import java.awt.BorderLayout;
 import java.io.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.TextArea;
+import javax.swing.JScrollPane;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import javax.swing.JTextArea;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class FrmPrincipal extends JFrame {
 
@@ -25,13 +30,15 @@ public class FrmPrincipal extends JFrame {
 	private static final long serialVersionUID = -2563077659361509195L;
 	private JPanel contentPane;
 	private File editorFile;
-	public static TextArea editorArea;
+	public static JTextArea editorArea;
 	private JMenuItem archivoGuardar;
 	private JMenuItem archivoGuardarComo;
 	public static Colores colores;
+	public static Font appFont;
 	
 	
 	public FrmPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\eclipse-workspace\\Editor de Texto\\notepad.png"));
 		setTitle("JEditor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -135,17 +142,17 @@ public class FrmPrincipal extends JFrame {
 		contentPane.setBorder(null);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
-		editorArea = new TextArea();
-		editorArea.setBackground(SystemColor.control);
-		contentPane.add(editorArea, BorderLayout.CENTER);
+		editorArea = new JTextArea();
+		JScrollPane scrollArea = new JScrollPane(editorArea);
+		contentPane.add(scrollArea, BorderLayout.CENTER);
 		editorFile = Controller.newFile();
 		archivoGuardar.setEnabled(false);
 		archivoGuardarComo.setEnabled(true);
 		colores = ColoresController.getDefaultColores();
-		if(colores != null) {
-			ColoresController.setColores(colores);
-		}
+		appFont = FuenteController.getDefaultAppFont();
+		ColoresController.setColores(colores);
+		FuenteController.setAppFont(appFont);
+		
 	}
 
 }
