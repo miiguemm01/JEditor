@@ -54,12 +54,12 @@ public class FuenteController {
 			Font testFont = makeFont(fontName, fontSize, FrmFuente.fontStyle);
 			FrmFuente.testLabel.setFont(testFont);
 		}catch(Exception e) {
-			/*
-			String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-			for(int i = 0; i < fonts.length; i++) {
-				System.out.println(fonts[i]);
-			}
-			*/
+			
 		}
+	}
+	
+	public static String[] getAvailableFonts() {
+		String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+		return fonts;
 	}
 }
