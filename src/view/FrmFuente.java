@@ -32,6 +32,7 @@ public class FrmFuente extends JDialog {
 	private ButtonGroup radioGroup;
 	public static String fontStyle = "Normal";
 	public static Font testFont;
+	public static String[] availableFonts;
 	
 	public FrmFuente() {
 		setTitle("Fuente");
@@ -65,11 +66,10 @@ public class FrmFuente extends JDialog {
 		listaFuente.setBounds(10, 31, 100, 71);
 		contentPanel.add(listaFuente);
 		//FIXME
-		listaFuente.add("Arial");
-		listaFuente.add("Verdana");
-		listaFuente.add("Tahoma");
-		listaFuente.add("Impact");
-		listaFuente.add("Sylfaen");
+		availableFonts = FuenteController.getAvailableFonts();
+		for(int i = 0; i < availableFonts.length; i++) {
+			listaFuente.add(availableFonts[i]);
+		}
 		
 		listaSize = new List();
 		listaSize.addItemListener(new ItemListener() {
